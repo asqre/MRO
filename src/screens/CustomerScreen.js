@@ -2,8 +2,11 @@ import React from "react";
 import Layout from "../layouts/Layout";
 import Slider from "react-slick";
 import { advancedTechnologies } from "../constants";
+import { useNavigate } from "react-router-dom";
 
 const CustomerScreen = () => {
+  const navigate = useNavigate();
+
   const settings3 = {
     dots: false,
     arrows: false,
@@ -39,7 +42,7 @@ const CustomerScreen = () => {
   return (
     <Layout>
       <div className="bg-white overflow-hidden mt-[67px]">
-        <div className="p-5">
+        <div className="p-5 max-w-6xl mx-auto">
           <div className="bg-white rounded-lg shadow-sm p-5 mb-6">
             <div className="text-blue-600 font-semibold text-base mb-4">
               AI-Generated MRO Service Insights
@@ -88,9 +91,18 @@ const CustomerScreen = () => {
             </p>
           </div>
 
-          <div className="text-center my-8">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded font-medium transition-colors duration-200">
+          <div className="text-center my-8 flex justify-center gap-4">
+            <button 
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded font-medium transition-colors duration-200" 
+              onClick={() => navigate("/createServiceRequest")}
+            >
               Create New Service Request
+            </button>
+            <button 
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-medium transition-colors duration-200" 
+              onClick={() => navigate("/appointmentDetails")}
+            >
+              View Appointments
             </button>
           </div>
 
